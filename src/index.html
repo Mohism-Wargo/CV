@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>个人简历</title>
+  <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover"
+    />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_974371_cqiyab42oyq.css">
+  <style>
+    /*css reset*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    ul {
+      margin-left: 1em;
+    }
+    li {
+      margin-top: 6px;
+    }
+    a {
+      color: none;
+      text-decoration: underline;
+      text-decoration-color: #66a9a3 ;
+      text-underline-offset: 4px
+    }
+    
+    /*layout*/
+    body {
+      display: grid;
+      grid: auto auto / 1fr 320px 700px 1fr;
+    }
+    header {
+      background: rgb(51, 83, 85);
+      grid-column: 1 / span 4;
+      grid-row: 1;
+    }
+    main {
+      font-size: 15px;
+      grid-column: 3;
+      grid-row: 2;
+    }
+    aside {
+      font-size: 14px;
+      grid-column: 2;
+      grid-row: 2;
+    }
+    @media (max-width: 1000px) {
+      body {
+        grid: auto 400px / 1fr 200px 400px 1fr;
+      }   
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        grid: auto auto auto / 1fr;
+        padding: 0 10px 20px 10px;
+      }
+      header {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      aside {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      main {
+        grid-column: 1;
+        grid-row: 3;
+      }     
+    }  
+    /*common*/
+    body {
+      font: 14px/1.5 Arial;
+      color: #333;
+      padding-bottom: 30px;
+    }
+    
+    /*page*/
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgb(51, 83, 85);
+      color: #fff;
+    }
+    header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 15%;
+    }
+    header figcaption {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    header figure p {
+      margin-top: 10px;
+      color: #ccc;
+    }
+    
+    section {
+      display: grid;
+      grid: auto auto / 50px 50px 50px auto 1fr;
+      align-items: center;
+      margin-top: 12px;
+      padding: 8px;
+    }
+    section > .iconfont {
+      grid-row: 1;
+      grid-column: 1;
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: #66a9a3;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    section > h2 {
+      grid-row: 1;
+      grid-column: 2 / span 2;
+      font-size: 18px;
+    }
+    section > hr {
+      grid-row: 1;
+      grid-column: 4 / span 4;
+      border: none;
+      height: 2px;
+      background: #66a9a3;
+    }
+    section >.detail {
+      grid-row: 2;
+      grid-column: 2/span 4;
+    }
+    section >.detail hr{
+      border: none;
+      height: 1px;
+      margin-top: 24px;
+      background: #c0c0c0;
+    } 
+    section .icon-list {
+      display: flex;
+      align-items: center;
+      margin-top:  6px;
+    }
+    section .icon-list .iconfont {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    section .skill-bar dt {
+      margin-top: 16px;
+    }
+    section .skill-bar dd {
+      height: 3px;
+      background: #eaeaea;
+    }
+    section .skill-bar dd div {
+      height: 100%;
+      background: #66a9a3;
+      margin-top: 10px;
+    }
+    section .timeline-panel {
+      display: grid;
+      grid: auto auto / 0 auto 110px 120px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    section .timeline-panel .date {
+      grid-row: 1;
+      grid-column: 4;
+    }
+    section .timeline-panel > h3 {
+      grid-row: 1;
+      grid-column: 2 / span 2;
+      padding-top: 6px;
+      color: rgb(51, 179, 168);
+    }
+    section .timeline-panel .firm{
+      grid-row: 1;
+      grid-column: 2 / span 2;
+      color: rgb(73, 73, 73);
+    }
+    section .timeline-panel  a {
+      grid-row: 2;
+      grid-column: 3;
+      display: inline-block ; 
+      padding-left: 12px;
+      color: #ffa24a;
+      font-weight: bold;
+    } 
+    section .timeline-panel  .subentry {
+      grid-row: 2;
+      grid-column: 4;
+    }  
+    section .timeline-panel p {
+      grid-row: 2;
+      grid-column: 4;
+      display: inline-block; 
+      padding-left: 15px;
+      color: rgb(51, 179, 168);
+      font-weight: bold;
+    }  
+    section .timeline-panel .intro {
+      grid-row: 1;
+      grid-column: 5;
+      color: #666;
+    }
+    section .timeline-panel .detail {
+      grid-row: 4;
+      grid-column: 2/span 3;
+      margin-top: 4px;
+    } 
+    section .timeline-panel span{
+      color: #ffa24a;
+      font-weight: bolder;
+    } 
+    section .timeline-panel img{
+      grid-row: 3;
+      grid-column: 4;
+      height: 105px;
+      width: 105px;
+      margin-left: 15px;
+      margin-top: 4px;
+      border: 3px solid #66a9a3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <figure>
+      <img src="https://img0.baidu.com/it/u=189649806,2789154204&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="照片">
+      <figcaption>黄坤</figcaption>
+      <p>应聘前端工程师</p>
+    </figure>
+  </header>
+  <main>    
+    <section>
+      <span class="iconfont icon-experience"></span>
+      <h2>工作经历</h2>
+      <hr>
+      <div class="detail">
+        <div class="timeline-panel">
+          <p class="firm">XXXX科技</p>
+          <div class="date">09/2013~07/2017</div>
+          <p class="intro">前端工程师</p>
+        </div> 
+        <div class="timeline-panel">
+          <p class="firm">XXXX公司</p>
+          <div class="date">09/2013~07/2017</div>
+          <p class="intro">前端工程师</p>
+        </div> 
+        <div class="timeline-panel">
+          <p class="firm">XXXXXX公司</p>
+          <div class="date">09/2013~07/2017</div>
+          <p class="intro">前端工程师</p>
+        </div> 
+      </div>
+    </section>  
+    <section>
+      <span class="iconfont icon-project"></span>
+      <h2>项目经历</h2>
+      <hr>
+      <div class="detail">
+        <div class="timeline-panel">
+          <h3>青竹记账 （bamboo-note）</h3>
+          <p>项目预览二维码</p>
+          <a href="https://mohism-wargo.github.io/bamboo-note-website/" title="点击可跳转">项目预览链接</a>  
+          <img src="./assets/QR/bamboo-note.png" alt="二维码" title="扫一扫即可预览">
+          <div class="detail">                         
+            <ul>
+              <li>技术栈：<span> Vue 2、TypeScript、Vue Router、Vuex </span> 。</li>
+              <li>项目介绍：该项目是一款基于<span> Vue 2、Vue Router、Vuex、TypeScript</span> 的记账应用，构建形式为<span> SFC </span>单页面应用。
+                  可以进行日常生活中各项收支的记录和分类，添加编辑标签、金额、备注，查看历史账目信息。
+                  用户各项数据，如标签、备注、收支金额、记录时间等，均存储在本地。
+                  针对移动端进行优化，在手机上使用体验较好。
+                  主要页面有:收支记账、标签列编辑、账本明细。底部点击可切换各页面。
+                  项目的各页面切换使用前端路由，用户数据采用<span> Vuex </span>管理。
+                  账本历史数据，可选择按日月年的统计模式查看。    
+              </li>
+              <li>项目经验：基于<span> Vue 2、TypeScript </span>和<span> vue-cli </span>进行开发，<span> vue-cli </span>内置<span> Webpakc </span>，需注意<span> Webpakc </span>及<span> TypeScript </span>与<span> Vue </span>的配置项。
+                  根据设计需求分析，将项目中各个页面也进行组件化的拆分，复用组件，减少代码的重复。
+                  因各页面组件之间数据流向和通信的繁杂，统一使用<span> Vuex </span>管理用户数据状态，并以<span> localStorage </span>来控制用户数据在本地的持久化，存储和读取等。
+                  在<span> Vue 2 </span>中使用<span> TypeScript </span>开发的体验不算友好。<span> Vue 2 </span>对<span> TypeScript </span>的支持不够完美，需要大量使用装饰器语法来配合构建<span> Vue </span>组件。
+                  但<span> Vue 2 </span>项目在市场上比较成熟，使用<span> TypeScript </span>对项目进行重构的需求较多，熟悉并掌握这一技术组合是必要的。
+              </li>
+            </ul>
+          </div>
+        </div> 
+        <hr>
+        <div class="timeline-panel">
+          <h3>椰子云笔记 （CoconutNote）</h3>
+          <a href="https://mohism-wargo.github.io/CoconutNote/" title="点击可跳转">项目预览链接</a>  
+          <div class="detail">                         
+            <ul>
+              <li>技术栈：<span> Vue 2、JavaScript、AJAX、Vuex </span> 。</li>
+              <li>项目介绍：该项目是一款基于<span> Vue 2、JavaScript </span> 构建的轻量级云笔记<span> SFC </span>项目。适配<span> PC </span>端网页，包含欢迎、登录（注册）、笔记本列表、笔记详情、回收站等多个页面，主要组件有侧边栏导航等。
+                  在注册（登录）后，可根据不同的类型创建多个笔记本，笔记本内可创建多个笔记，用户可随时记录、编辑、删除笔记。无论是工作安排、学习笔记、随想，即开即用，方便你的工作和生活。
+                  使用<span> CodeMirror </span>组件，支持 <span> Markdown </span>语法，点击预览可显示笔记实际效果。用户账号信息和所有笔记，均存储在云端服务器，被删除笔记将暂存在回收站中，可恢复或彻底删除。
+              </li>
+              <li>项目经验：基于<span> Vue 2、JavaScript、vue-cli </span>脚手架开发，原生支持较好，节省配置时间。
+                对约定的<span> HTTP </span>请求进行封装，提高了 <span> AJAX </span> 的编写效率，在用户数据同步的<span> HTTP </span>请求中使用<span> Promise </span>语句，链式调用避免了回调地狱，项目开发更加便利。
+                使用<span> Vuex </span>管理用户数据状态，大幅减少了组件通信的繁杂，拥有<span> state 、mutations 、modules、actions、getters </span>，解决了多组之间状态共享问题。
+                使用路由定位被编辑的笔记，用<span> query </span>方法进行请求，并监听<span> query id </span>的变化，实现数据的更新和页面切换。
+                <span> Vue 2 </span>框架使用原生<span> JavaScript </span>开发体验良好，但类型推断能力弱，注意厘清数据的形式。
+                使用<span> Chrome </span>调试时安装<span> Vue.js </span>的<span> devtools </span>插件，可以很简便地对数据结构进行解析和调试，能直观的查看各组件的<span> data、computed </span>,以及<span> Vuex </span>管理的各项数据状态。
+              </li>
+            </ul>
+          </div>
+        </div> 
+        <hr>
+        <div class="timeline-panel">
+          <h3>有余记账 （surplus-app）</h3>
+          <p>项目预览二维码</p>
+          <a href="https://mohism-wargo.github.io/surplus-app/dist/index.html#/" title="点击可跳转">项目预览链接</a>  
+          <img src="./assets/QR/surplus-app.png" alt="二维码" title="扫一扫即可预览">
+          <div class="detail">                         
+            <ul>
+              <li>技术栈：<span> Vue 3、Vite 3、TSX 、Pinia </span> 。</li>
+              <li>项目介绍：该项目是一款基于<span> Vue 3、TSX </span> 构建的在线记账<span> SFC </span>单页面应用。
+                  可以进行日常生活中各项收支的记录和分类，支持添加标签<span> Emoji </span>表情和编辑、金额、备注，查看历史开支信息。
+                  具备信息可视化查看功能，用户各项数据，如标签、备注、收支金额、记录时间等，均存储在云端服务器。
+                  可适配移动端、平板、<span> PC </span>端，特别对移动端进行优化，在手机上使用体验较好。
+                  主要页面有:登录（注册）、初次使用欢迎页、记账页面、统计图表、记账页面和标签选择页面，点击左上角选项图标会显示侧边导航栏，可以直接点击跳转对应的页面，顶部可进行登录和退出账号的操作。
+                  所有收支明细可按本月、上月、今年和自定义时间的统计模式查看，统计图表页面中也可以按本月、上月、自定义时间生成对应的可视化折线图、饼图、条形图。</li>
+              <li>项目经验: 本项目用<span> TSX </span>语法代替<span> template </span>模板，同时结合<span> CSS Modules </span>代替 <span> style </span>标签。
+                  使用<span> Vue Router </span>通过路由守卫实现鉴权，进而引导用户登录，自制<span> Vite </span>插件实现<span> SVG Sprites </span>，同时还实现了广告页的手势滑动效果。
+                  自制表单组件，包含输入框文本、验证码、日期、下拉列表、<span> Emoji </span>表情等，可扩展性强。
+                  使用<span> Axios </span>处理网络请求，采用<span> JWT </span>进行用户认证，进行了二次封装，包含错误处理、显示加载中提示登录等功能，据此自制了纯前端<span> Mock </span>系统，使用<span> faker </span>构造数据。
+                  全局状态管理使用<span> Pinia </span>，避免封装的<span> store </span>导致的跨请求状态污染，记录用户的登录状态和相关数据，进而熟悉了<span> Pinia </span>的<span> ID </span>持久化等知识。
+                  使用<span> ECharts </span>实现数据可视化，包含条形图、折线图、饼图等，了解如何构造数据、修改相应配置项。
+                  通过<span> dynamic import </span> 、<span> Rollup chunk </span>、条件编译等方法优化项目打包体积。
+                  项目尽量减少了对第三方组件库的依赖，只使用了<span> Vant </span>组件，提高了学习和封装能力。</li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </section>     
+</main>
+<aside>
+    <section>
+      <span class="iconfont icon-personal"></span>
+      <h2>基本信息</h2>
+      <hr>
+      <div class="detail">
+        <div class="icon-list"><span class="iconfont icon-phone"></span>手机：13767067174</div>
+        <div class="icon-list"><span class="iconfont icon-wechat"></span>微信：13767067174</div>
+        <div class="icon-list"><span class="iconfont icon-email"></span>邮箱：hk81206676@163.com</div>
+        <div class="icon-list"><span class="iconfont icon-education"></span>学校：江西现代职业技术学院</div>
+        <div class="icon-list"><span class="iconfont icon-education"></span>学历：大专</div>
+      </div>
+    </section>
+    <section>
+      <span class="iconfont icon-introduction"></span>
+      <h2>掌握技能</h2>
+      <hr>
+      <div class="detail">
+        <ul>
+          <li>了解HTML的发展历史和W3C标准,注重页面的语义化 。</li>
+          <li>掌握HTML5/CSS3，熟悉传统布局、Flex布局、Grid布局、移动端适配等 。</li>
+          <li>掌握CSS盒模型盒和选择器的使用、熟悉JS事件处理机制和事件冒泡 。</li> 
+          <li>熟悉Vue技术栈如Vue-Router、Vuex、Vue-CLI及相关流行库的使用，理解其重要概念 。</li>
+          <li>熟悉并使用过Element UI、Ant Design UI 组件库 。</li>
+          <li>熟悉前后端交互技术JSONP、AJAX，了解Node.js 。</li>
+          <li>了解使用过Docker相关技术</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <span class="iconfont icon-project"></span>
+      <h2>开源项目</h2>
+      <hr>
+      <div class="detail">
+        <div class="timeline-panel">
+          <h3>on-a-roll</h3>
+          <p>项目预览二维码</p>
+          <img src="./assets/QR/on-a-roll.png" alt="二维码" title="扫一扫即可预览">
+          <div class="detail">                         
+            <ul>
+              <li>项目介绍： on-a-roll（幸运抽奖）是由<span> uni-app </span>实现的微信抽奖小程序，可以让用户自行上传奖品图片和编辑奖品名称，抽奖者可以在抽奖页面随机抽取奖品，适合在公司年会、聚会和一些活动使用。
+                使用<span> uni-app </span>开发小程序，开发成本低，开发效率高。但兼容性差，问题比较多，后期维护难度大。
+              </li>
+            </ul>
+          </div>
+        </div> 
+        <hr>
+        <div class="timeline-panel">
+          <h3>valley-music</h3>
+          <a class="subentry" href="https://mohism-wargo.github.io/valley-music-website/dist/index.html" title="点击可跳转">项目预览链接</a>  
+          <div class="detail">                         
+            <ul>
+              <li>项目介绍： valley-music（溪谷音乐）是一款简单的音乐播放器应用，是基于原生<span> JavaScript、SVG、CSS 3</span> 的单页面应用。
+                基本实现了音乐播放器的主要功能，如播放、暂停、上下一曲、单曲播放、顺序播放、随机播放、播放时间轴等，以及歌词的动态显示和音乐播放时的<span> CSS </span>动画效果。
+                可适配移动端、平板、<span> PC </span>端，特别对移动端进行优化，在手机上使用效果最佳。
+              </li>
+            </ul>
+          </div>
+        </div> 
+        <hr>
+        <div class="timeline-panel">
+          <h3>熊猫</h3>
+          <a class="subentry" href="https://mohism-wargo.github.io/panda/dist/index.html" title="点击可跳转">项目预览链接</a>  
+          <div class="detail">                         
+            <ul>
+              <li>项目介绍： 这是一个用<span> JavaScript </span>加<span> CSS </span>实现的小项目，利用原生<span> JavaScript </span>对<span> DOM </span>的操作动态的展示了“熊猫头”的绘制过程和项目代码，
+                并添加了暂停、播放、慢速、正常、快速按钮，可根据个人需要调整项目的展示速度及暂停和播放。</li>
+            </ul>
+          </div>
+        </div> 
+        <hr>
+      </div>
+    </section>  
+</aside>
+</body>
+<script src="./main.js"></script>
+</html>
